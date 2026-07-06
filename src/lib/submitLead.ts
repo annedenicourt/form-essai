@@ -1,6 +1,7 @@
 // URL du webhook Google Apps Script.
 // Remplacer par l'URL réelle de votre script pour activer l'envoi.
-export const GOOGLE_SHEETS_WEBHOOK_URL = "";
+export const GOOGLE_SHEETS_WEBHOOK_URL =
+  "https://script.google.com/macros/s/AKfycbxpcw0v4MVbTpuaW2u_9jbf_ZlvSxQOiBKRK7bwI6XM5JlSUJN-oWW-4XGR_NGBhoI2/exec";
 
 export type LeadPayload = {
   created_at: string;
