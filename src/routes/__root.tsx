@@ -84,6 +84,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Demandez un diagnostic toiture gratuit avec Groupe HER ENR. Réponse sous 24h, sans engagement.",
       },
       { name: "robots", content: "noindex, nofollow" },
+      { property: "og:title", content: "Diagnostic toiture gratuit — Groupe HER ENR" },
+      { name: "twitter:title", content: "Diagnostic toiture gratuit — Groupe HER ENR" },
+      { name: "description", content: "Demandez un diagnostic toiture gratuit avec Groupe HER ENR. Réponse sous 24h, sans engagement." },
+      { property: "og:description", content: "Demandez un diagnostic toiture gratuit avec Groupe HER ENR. Réponse sous 24h, sans engagement." },
+      { name: "twitter:description", content: "Demandez un diagnostic toiture gratuit avec Groupe HER ENR. Réponse sous 24h, sans engagement." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c4a585f6-f9ed-4c23-9d21-82e8de1a8026/id-preview-9b8c482d--21c53e7c-8f6e-471d-8ccc-a138942a161e.lovable.app-1783335041894.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c4a585f6-f9ed-4c23-9d21-82e8de1a8026/id-preview-9b8c482d--21c53e7c-8f6e-471d-8ccc-a138942a161e.lovable.app-1783335041894.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:type", content: "website" },
     ],
 
     links: [
