@@ -5,12 +5,13 @@ import { ProgressBar } from "./ProgressBar";
 import { Step1Problem } from "./Step1Problem";
 import { Step2Location } from "./Step2Location";
 import { Step3Project } from "./Step3Project";
-import { Step4Contact } from "./Step4Contact";
+import { Step4Callback } from "./Step4Callback";
+import { Step5Contact } from "./Step5Contact";
 import { SuccessScreen } from "./SuccessScreen";
 import { ErrorNotice } from "./ErrorNotice";
 
 type Status = "idle" | "submitting" | "success" | "error";
-type StepIndex = 1 | 2 | 3 | 4;
+type StepIndex = 1 | 2 | 3 | 4 | 5;
 
 export function RoofForm() {
   const [step, setStep] = useState<StepIndex>(1);
@@ -34,7 +35,7 @@ export function RoofForm() {
       return;
     }
     setErrors({});
-    setStep((s) => Math.min(4, s + 1) as StepIndex);
+    setStep((s) => Math.min(5, s + 1) as StepIndex);
   }, [step, data]);
 
   const goBack = useCallback(() => {
@@ -43,7 +44,7 @@ export function RoofForm() {
   }, []);
 
   const submit = useCallback(async () => {
-    const stepErrors = validateStep(4, data);
+    const stepErrors = validateStep(5, data);
     if (Object.keys(stepErrors).length > 0) {
       setErrors(stepErrors);
       return;
@@ -91,12 +92,13 @@ export function RoofForm() {
         <ErrorNotice onRetry={submit} onBack={() => setStatus("idle")} />
       ) : (
         <>
-          <ProgressBar current={step} total={4} />
+          <ProgressBar current={step} total={5} />
           {step === 1 && <Step1Problem data={data} errors={errors} update={update} onNext={goNext} />}
           {step === 2 && <Step2Location data={data} errors={errors} update={update} onNext={goNext} onBack={goBack} />}
           {step === 3 && <Step3Project data={data} errors={errors} update={update} onNext={goNext} onBack={goBack} />}
-          {step === 4 && (
-            <Step4Contact
+          {step === 4 && <Step4Callback data={data} errors={errors} update={update} onNext={goNext} onBack={goBack} />}
+          {step === 5 && (
+            <Step5Contact
               data={data}
               errors={errors}
               update={update}
