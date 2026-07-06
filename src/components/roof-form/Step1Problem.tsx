@@ -1,5 +1,23 @@
+import {
+  ChevronsDown,
+  Clock,
+  Droplet,
+  Hammer,
+  HelpCircle,
+  Sprout,
+} from "lucide-react";
+
 import { PROBLEM_OPTIONS, type FieldErrors, type RoofFormData } from "@/lib/roof-form-schema";
 import { ChoiceCard, FieldError, PrimaryButton } from "./form-primitives";
+
+const PROBLEM_ICONS: Record<string, React.ReactNode> = {
+  "Mousses / traces noires": <Sprout size={20} />,
+  "Tuiles abîmées": <Hammer size={20} />,
+  "Infiltration ou fuite": <Droplet size={20} />,
+  "Toiture ancienne": <Clock size={20} />,
+  "Gouttières / débords de toit": <ChevronsDown size={20} />,
+  "Je ne sais pas": <HelpCircle size={20} />,
+};
 
 export function Step1Problem({
   data,
@@ -28,6 +46,7 @@ export function Step1Problem({
             selected={data.problem_type === opt}
             onClick={() => update({ problem_type: opt })}
             compact
+            icon={PROBLEM_ICONS[opt]}
           />
         ))}
       </div>
