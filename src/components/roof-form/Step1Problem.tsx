@@ -1,5 +1,5 @@
 import { PROBLEM_OPTIONS, type FieldErrors, type RoofFormData } from "@/lib/roof-form-schema";
-import { ChoiceCard, FieldError, PrimaryButton } from "./form-primitives";
+import { BigChoiceCard, FieldError, PrimaryButton } from "./form-primitives";
 
 import roofMoss from "@/assets/roof-form/roof-moss.jpg";
 import roofBroken from "@/assets/roof-form/roof-broken-tiles.jpg";
@@ -13,7 +13,7 @@ const PROBLEM_IMAGES: Record<string, string> = {
   "Tuiles abîmées": roofBroken,
   "Infiltration ou fuite": roofLeak,
   "Toiture ancienne": roofOld,
-  "Gouttières / débords de toit": roofGutter,
+  "Autre ": roofGutter,
   "Je ne sais pas": roofUnknown,
 };
 
@@ -36,7 +36,7 @@ export function Step1Problem({
 
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
         {PROBLEM_OPTIONS.map((opt) => (
-          <ChoiceCard
+          <BigChoiceCard
             key={opt}
             label={opt}
             selected={data.problem_type === opt}

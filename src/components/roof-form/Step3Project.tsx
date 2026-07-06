@@ -1,5 +1,5 @@
 import { CALLBACK_OPTIONS, PROJECT_OPTIONS, type FieldErrors, type RoofFormData } from "@/lib/roof-form-schema";
-import { ChoiceCard, FieldError, FieldLabel, PrimaryButton, SecondaryButton, TextArea } from "./form-primitives";
+import { SmallChoiceCard, FieldError, FieldLabel, PrimaryButton, SecondaryButton, TextArea } from "./form-primitives";
 
 export function Step3Project({
   data,
@@ -17,14 +17,12 @@ export function Step3Project({
   return (
     <div className="flex flex-col gap-3">
       <div>
-        <h2 className="text-[16px] font-semibold text-white leading-tight">
-          Votre demande concerne plutôt :
-        </h2>
+        <h2 className="text-[16px] font-semibold text-white leading-tight">Votre demande concerne plutôt :</h2>
       </div>
 
       <div className="grid grid-cols-2 gap-2">
         {PROJECT_OPTIONS.map((opt) => (
-          <ChoiceCard
+          <SmallChoiceCard
             key={opt}
             label={opt}
             selected={data.project_type === opt}
@@ -39,7 +37,7 @@ export function Step3Project({
         <FieldLabel required>Quand souhaitez-vous être rappelé ?</FieldLabel>
         <div className="grid grid-cols-2 gap-2">
           {CALLBACK_OPTIONS.map((opt) => (
-            <ChoiceCard
+            <SmallChoiceCard
               key={opt}
               label={opt}
               selected={data.callback_preference === opt}

@@ -5,7 +5,7 @@ export const PROBLEM_OPTIONS = [
   "Tuiles abîmées",
   "Infiltration ou fuite",
   "Toiture ancienne",
-  "Gouttières / débords de toit",
+  "Autre ",
   "Je ne sais pas",
 ] as const;
 
@@ -31,9 +31,7 @@ export const step1Schema = z.object({
 
 export const step2Schema = z.object({
   address: z.string().max(200).optional().default(""),
-  postal_code: z
-    .string()
-    .regex(/^\d{5}$/, "Code postal invalide (5 chiffres)."),
+  postal_code: z.string().regex(/^\d{5}$/, "Code postal invalide (5 chiffres)."),
   city: z.string().trim().min(1, "Ville obligatoire.").max(100),
 });
 
@@ -49,10 +47,7 @@ export const step4Schema = z.object({
   phone: z
     .string()
     .trim()
-    .regex(
-      /^(?:\+33\s?|0)[1-9](?:[\s.-]?\d{2}){4}$/,
-      "Numéro de téléphone invalide.",
-    ),
+    .regex(/^(?:\+33\s?|0)[1-9](?:[\s.-]?\d{2}){4}$/, "Numéro de téléphone invalide."),
   email: z
     .string()
     .trim()
@@ -98,10 +93,7 @@ export const emptyFormData: RoofFormData = {
 
 export type FieldErrors = Partial<Record<keyof RoofFormData, string>>;
 
-export function validateStep(
-  step: 1 | 2 | 3 | 4,
-  data: RoofFormData,
-): FieldErrors {
+export function validateStep(step: 1 | 2 | 3 | 4, data: RoofFormData): FieldErrors {
   const schemas = { 1: step1Schema, 2: step2Schema, 3: step3Schema, 4: step4Schema };
   const result = schemas[step].safeParse(data);
   if (result.success) return {};

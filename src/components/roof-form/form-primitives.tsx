@@ -58,7 +58,7 @@ export function SecondaryButton({ children, className = "", ...rest }: ButtonHTM
   );
 }
 
-export function ChoiceCard({
+export function SmallChoiceCard({
   label,
   selected,
   onClick,
@@ -73,18 +73,13 @@ export function ChoiceCard({
   icon?: React.ReactNode;
   image?: string;
 }) {
-  const base = "w-full text-left bg-white rounded-lg border transition";
-  const state = selected
-    ? "border-brand-orange shadow-[0_0_0_2px_var(--color-brand-orange)]"
-    : "border-2 border-white/15 hover:border-brand-orange";
+  const base =
+    "w-full text-left bg-white rounded-lg transition hover:border-brand-orange hover:shadow-[0_0_0_2px_var(--color-brand-orange)]";
+  const state = selected ? "border-brand-orange shadow-[0_0_0_2px_var(--color-brand-orange)]" : " hover:border-brand-orange";
 
   if (image) {
     return (
-      <button
-        type="button"
-        onClick={onClick}
-        className={`${base} ${state} p-2 flex flex-col items-center gap-1.5 text-slate-800`}
-      >
+      <button type="button" onClick={onClick} className={`${base} ${state} flex flex-col items-center gap-1.5 text-slate-800`}>
         <img
           src={image}
           alt=""
@@ -93,19 +88,66 @@ export function ChoiceCard({
           onError={(e) => {
             (e.currentTarget as HTMLImageElement).style.display = "none";
           }}
-          className="w-full h-[80px] object-cover rounded-[10px]"
+          className="w-full h-[80px] object-cover rounded-tr-lg rounded-tl-lg"
         />
-        <span className="text-center text-[12px] leading-tight font-medium">{label}</span>
+        <span className="mt-3 text-center text-[12px] leading-tight font-medium">{label}</span>
       </button>
     );
   }
 
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={`${base} h-36 ${compact ? "px-3 py-2 text-[13px]" : "px-3 py-2.5 text-[13px]"} ${state}`}
-    >
+    <button type="button" onClick={onClick} className={`${base} ${compact ? "px-3 py-2 text-[13px]" : "px-3 py-2.5 text-[13px]"} ${state}`}>
+      {icon ? (
+        <div className="flex flex-col items-center text-center gap-2">
+          <div className="text-brand-orange">{icon}</div>
+          {label}
+        </div>
+      ) : (
+        label
+      )}
+    </button>
+  );
+}
+
+export function BigChoiceCard({
+  label,
+  selected,
+  onClick,
+  compact = false,
+  icon,
+  image,
+}: {
+  label: string;
+  selected: boolean;
+  onClick: () => void;
+  compact?: boolean;
+  icon?: React.ReactNode;
+  image?: string;
+}) {
+  const base =
+    "w-full h-32 text-left bg-white rounded-lg transition hover:border-brand-orange hover:shadow-[0_0_0_2px_var(--color-brand-orange)]";
+  const state = selected ? "border-brand-orange shadow-[0_0_0_2px_var(--color-brand-orange)]" : " hover:border-brand-orange";
+
+  if (image) {
+    return (
+      <button type="button" onClick={onClick} className={`${base} ${state} flex flex-col items-center gap-1.5 text-slate-800`}>
+        <img
+          src={image}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          onError={(e) => {
+            (e.currentTarget as HTMLImageElement).style.display = "none";
+          }}
+          className="w-full h-[80px] object-cover rounded-tr-lg rounded-tl-lg"
+        />
+        <span className="mt-3 text-center text-[12px] leading-tight font-medium">{label}</span>
+      </button>
+    );
+  }
+
+  return (
+    <button type="button" onClick={onClick} className={`${base} ${compact ? "px-3 py-2 text-[13px]" : "px-3 py-2.5 text-[13px]"} ${state}`}>
       {icon ? (
         <div className="flex flex-col items-center text-center gap-2">
           <div className="text-brand-orange">{icon}</div>
