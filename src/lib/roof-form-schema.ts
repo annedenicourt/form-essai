@@ -37,11 +37,14 @@ export const step2Schema = z.object({
 
 export const step3Schema = z.object({
   project_type: z.string().min(1, "Merci de sélectionner une option."),
+});
+
+export const step4Schema = z.object({
   callback_preference: z.string().min(1, "Merci de sélectionner un moment."),
   message: z.string().max(1000).optional().default(""),
 });
 
-export const step4Schema = z.object({
+export const step5Schema = z.object({
   lastname: z.string().trim().min(1, "Nom obligatoire.").max(80),
   firstname: z.string().trim().max(80).optional().default(""),
   phone: z
@@ -93,8 +96,8 @@ export const emptyFormData: RoofFormData = {
 
 export type FieldErrors = Partial<Record<keyof RoofFormData, string>>;
 
-export function validateStep(step: 1 | 2 | 3 | 4, data: RoofFormData): FieldErrors {
-  const schemas = { 1: step1Schema, 2: step2Schema, 3: step3Schema, 4: step4Schema };
+export function validateStep(step: 1 | 2 | 3 | 4 | 5, data: RoofFormData): FieldErrors {
+  const schemas = { 1: step1Schema, 2: step2Schema, 3: step3Schema, 4: step4Schema, 5: step5Schema };
   const result = schemas[step].safeParse(data);
   if (result.success) return {};
   const errors: FieldErrors = {};
