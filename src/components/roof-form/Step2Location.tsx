@@ -16,13 +16,9 @@ export function Step2Location({
 }) {
   return (
     <div className="flex flex-col gap-3">
-      <div>
-        <h2 className="text-[16px] font-semibold text-white leading-tight">
-          Où se situe le logement ?
-        </h2>
-        <p className="mt-0.5 text-[12px] text-white/70">
-          Ces informations nous permettent de vérifier votre zone d'intervention.
-        </p>
+      <div className="mb-6">
+        <h2 className="text-[16px] font-semibold text-white leading-tight">Où se situe le logement ?</h2>
+        <p className="mt-0.5 text-[12px] text-white/70">Ces informations nous permettent de vérifier votre zone d'intervention</p>
       </div>
 
       <div>
@@ -38,7 +34,9 @@ export function Step2Location({
 
       <div className="grid grid-cols-[110px_1fr] gap-2">
         <div>
-          <FieldLabel htmlFor="postal_code" required>Code postal</FieldLabel>
+          <FieldLabel htmlFor="postal_code" required>
+            Code postal
+          </FieldLabel>
           <TextInput
             id="postal_code"
             value={data.postal_code}
@@ -51,7 +49,9 @@ export function Step2Location({
           <FieldError message={errors.postal_code} />
         </div>
         <div>
-          <FieldLabel htmlFor="city" required>Ville</FieldLabel>
+          <FieldLabel htmlFor="city" required>
+            Ville
+          </FieldLabel>
           <TextInput
             id="city"
             value={data.city}
@@ -64,7 +64,7 @@ export function Step2Location({
         </div>
       </div>
 
-      <div className="flex gap-2 pt-1">
+      <div className="flex gap-2 pt-1 mt-6">
         <SecondaryButton type="button" onClick={onBack} className="flex-1">
           Retour
         </SecondaryButton>

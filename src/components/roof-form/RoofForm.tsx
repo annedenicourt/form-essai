@@ -34,12 +34,12 @@ export function RoofForm() {
       return;
     }
     setErrors({});
-    setStep((s) => (Math.min(4, s + 1) as StepIndex));
+    setStep((s) => Math.min(4, s + 1) as StepIndex);
   }, [step, data]);
 
   const goBack = useCallback(() => {
     setErrors({});
-    setStep((s) => (Math.max(1, s - 1) as StepIndex));
+    setStep((s) => Math.max(1, s - 1) as StepIndex);
   }, []);
 
   const submit = useCallback(async () => {
@@ -66,7 +66,6 @@ export function RoofForm() {
       });
       setStatus("success");
     } catch (err) {
-      // eslint-disable-next-line no-console
       console.error("[RoofForm] submit error:", err);
       setStatus("error");
     }
@@ -80,14 +79,10 @@ export function RoofForm() {
   }, []);
 
   return (
-    <div className="w-full max-w-[520px] mx-auto bg-brand-navy rounded-2xl p-4 sm:p-5 shadow-xl">
+    <div className="w-full max-w-[520px] h-[600px] mx-auto p-4 sm:p-5 bg-brand-navy rounded-2xl  shadow-xl">
       <div className="mb-3 text-center">
-        <h1 className="text-[18px] sm:text-[19px] font-bold text-white leading-tight tracking-tight">
-          FAITES VÉRIFIER VOTRE TOITURE
-        </h1>
-        <p className="mt-1 text-[12px] text-white/80">
-          Diagnostic gratuit — Réponse sous 24h — Sans engagement
-        </p>
+        <h1 className="text-[18px] sm:text-[19px] font-bold text-white leading-tight tracking-tight">FAITES VÉRIFIER VOTRE TOITURE</h1>
+        <p className="mt-1 text-[12px] text-white/80">Diagnostic gratuit — Réponse sous 24h — Sans engagement</p>
       </div>
 
       {status === "success" ? (

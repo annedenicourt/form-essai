@@ -19,9 +19,8 @@ export function TextInput(props: InputHTMLAttributes<HTMLInputElement> & { hasEr
   return (
     <input
       {...rest}
-      className={`h-9 w-full rounded-lg border bg-white px-3 text-[14px] text-slate-900 placeholder:text-slate-400 outline-none transition focus:ring-2 focus:ring-brand-orange/60 ${
-        hasError ? "border-orange-300" : "border-white/10"
-      } ${className}`}
+      className={`h-9 w-full rounded-lg border bg-white px-3 text-[14px] text-slate-900 placeholder:text-slate-400 outline-none transition focus:ring-2 focus:ring-brand-orange/60 ${hasError ? "border-orange-300" : "border-white/10"
+        } ${className}`}
     />
   );
 }
@@ -31,9 +30,8 @@ export function TextArea(props: TextareaHTMLAttributes<HTMLTextAreaElement> & { 
   return (
     <textarea
       {...rest}
-      className={`w-full rounded-lg border bg-white px-3 py-2 text-[14px] text-slate-900 placeholder:text-slate-400 outline-none transition focus:ring-2 focus:ring-brand-orange/60 ${
-        hasError ? "border-orange-300" : "border-white/10"
-      } ${className}`}
+      className={`w-full rounded-lg border bg-white px-3 py-2 text-[14px] text-slate-900 placeholder:text-slate-400 outline-none transition focus:ring-2 focus:ring-brand-orange/60 ${hasError ? "border-orange-300" : "border-white/10"
+        } ${className}`}
     />
   );
 }
@@ -77,21 +75,14 @@ export function ChoiceCard({
     <button
       type="button"
       onClick={onClick}
-      className={`w-full text-left rounded-lg border transition ${
-        compact ? "px-3 py-2 text-[13px]" : "px-3 py-2.5 text-[13px]"
-      } ${
-        selected
-          ? "border-brand-orange bg-brand-orange/15 text-white shadow-[0_0_0_1px_var(--color-brand-orange)]"
-          : "border-white/15 bg-brand-navy-2 text-white/90 hover:border-white/30 hover:bg-brand-navy-3"
-      }`}
+      className={`w-full h-36 text-left bg-white rounded-lg border transition ${compact ? "px-3 py-2 text-[13px]" : "px-3 py-2.5 text-[13px]"} ${selected ? "border-brand-orange shadow-[0_0_0_1px_var(--color-brand-orange)]" : "border-2 border-white/15 hover:border-brand-orange"
+        }`}
     >
       {icon ? (
-        <span className="inline-flex items-center gap-2">
-          <span className={selected ? "text-brand-orange" : "text-white/70"}>
-            {icon}
-          </span>
+        <div className="flex flex-col items-center text-center gap-2">
+          <div className={`text-brand-orange`}>{icon}</div>
           {label}
-        </span>
+        </div>
       ) : (
         label
       )}
