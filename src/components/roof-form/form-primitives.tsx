@@ -65,11 +65,13 @@ export function ChoiceCard({
   selected,
   onClick,
   compact = false,
+  icon,
 }: {
   label: string;
   selected: boolean;
   onClick: () => void;
   compact?: boolean;
+  icon?: React.ReactNode;
 }) {
   return (
     <button
@@ -83,7 +85,16 @@ export function ChoiceCard({
           : "border-white/15 bg-brand-navy-2 text-white/90 hover:border-white/30 hover:bg-brand-navy-3"
       }`}
     >
-      {label}
+      {icon ? (
+        <span className="inline-flex items-center gap-2">
+          <span className={selected ? "text-brand-orange" : "text-white/70"}>
+            {icon}
+          </span>
+          {label}
+        </span>
+      ) : (
+        label
+      )}
     </button>
   );
 }
