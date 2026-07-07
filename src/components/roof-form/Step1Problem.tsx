@@ -34,7 +34,7 @@ export function Step1Problem({
         <h2 className="text-[16px] font-semibold text-white leading-tight">Quel problème constatez-vous ?</h2>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+      <div className="grid grid-cols-2 gap-2">
         {PROBLEM_OPTIONS.map((option) => (
           <BigChoiceCard
             key={option}
