@@ -1,16 +1,20 @@
 import { PROBLEM_OPTIONS, type FieldErrors, type RoofFormData } from "@/lib/roof-form-schema";
 import { BigChoiceCard, FieldError, PrimaryButton } from "./form-primitives";
 
-import roofMoss from "@/assets/roof-form/roof-moss.jpg";
-import roofUnknown from "/public/images/roof-form/roof-unknown.jpg";
+import img1 from "@/assets/roof-form/roof-moss.jpg";
+import img2 from "@/assets/roof-form/tuiles-cassees.png";
+import img3 from "@/assets/roof-form/infiltration-toit.png";
+import img4 from "@/assets/roof-form/toiture-ancienne.png";
+import img5 from "@/assets/roof-form/gouttiere-abimee.png";
+import img6 from "@/assets/roof-form/roof-unknown.jpg";
 
 const PROBLEM_IMAGES: Record<string, string> = {
-  "Mousses / traces noires": roofMoss,
-  "Tuiles abîmées": "/public/images/tuiles-cassees.png",
-  "Infiltration ou fuite": "/public/images/infiltration-toit.png",
-  "Toiture ancienne": "/public/images/toiture-ancienne.png",
-  "Autre ": "/public/images/gouttiere-abimee.png",
-  "Je ne sais pas": "/public/images/roof-unknown.jpg",
+  "Mousses / traces noires": img1,
+  "Tuiles abîmées": img2,
+  "Infiltration ou fuite": img3,
+  "Toiture ancienne": img4,
+  "Autre ": img5,
+  "Je ne sais pas": img6,
 };
 
 export function Step1Problem({

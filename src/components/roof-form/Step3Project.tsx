@@ -1,5 +1,9 @@
 import { PROJECT_OPTIONS, type FieldErrors, type RoofFormData } from "@/lib/roof-form-schema";
 import { SmallChoiceCard, FieldError, PrimaryButton, SecondaryButton, BigChoiceCard } from "./form-primitives";
+import img1 from "@/assets/roof-form/artisan_traitement_toit.png";
+import img2 from "@/assets/roof-form/hydrofuge-toit.png";
+import img3 from "@/assets/roof-form/artisan_toit.png";
+import img4 from "@/assets/roof-form/roof-unknown.jpg";
 
 export function Step3Project({
   data,
@@ -15,10 +19,10 @@ export function Step3Project({
   onBack: () => void;
 }) {
   const PROJECT_IMAGES: Record<string, string> = {
-    "Nettoyage / démoussage": "public/images/artisan_traitement_toit.png",
-    "Traitement hydrofuge": "public/images/hydrofuge-toit.png",
-    Réparation: "public/images/artisan_toit.png",
-    "Avis/Diagnostic": "public/images/roof-unknown.jpg",
+    "Nettoyage / démoussage": img1,
+    "Traitement hydrofuge": img2,
+    Réparation: img3,
+    "Avis/Diagnostic": img4,
   };
   return (
     <div className="flex flex-col gap-3">
