@@ -13,8 +13,7 @@ export const PROJECT_OPTIONS = [
   "Nettoyage / démoussage",
   "Traitement hydrofuge",
   "Réparation",
-  "Rénovation",
-  "Avis professionnel",
+  "Avis/Diagnostic",
 ] as const;
 
 export const CALLBACK_OPTIONS = [
@@ -26,21 +25,21 @@ export const CALLBACK_OPTIONS = [
 ] as const;
 
 export const step1Schema = z.object({
-  problem_type: z.string().min(1, "Merci de sélectionner une option."),
+  problem_type: z.string().min(1, "Merci de sélectionner une option"),
 });
 
 export const step2Schema = z.object({
   address: z.string().max(200).optional().default(""),
-  postal_code: z.string().regex(/^\d{5}$/, "Code postal invalide (5 chiffres)."),
-  city: z.string().trim().min(1, "Ville obligatoire.").max(100),
+  postal_code: z.string().regex(/^\d{5}$/, "Code postal invalide (5 chiffres)"),
+  city: z.string().trim().min(1, "Ville obligatoire").max(100),
 });
 
 export const step3Schema = z.object({
-  project_type: z.string().min(1, "Merci de sélectionner une option."),
+  project_type: z.string().min(1, "Merci de sélectionner une option"),
 });
 
 export const step4Schema = z.object({
-  callback_preference: z.string().min(1, "Merci de sélectionner un moment."),
+  callback_preference: z.string().min(1, "Merci de sélectionner un moment"),
   message: z.string().max(1000).optional().default(""),
 });
 
@@ -55,12 +54,12 @@ export const step5Schema = z.object({
     .string()
     .trim()
     .refine((v) => v === "" || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v), {
-      message: "Email invalide.",
+      message: "Email invalide",
     })
     .optional()
     .default(""),
   consent: z.literal(true, {
-    errorMap: () => ({ message: "Consentement requis." }),
+    errorMap: () => ({ message: "Consentement requis" }),
   }),
 });
 

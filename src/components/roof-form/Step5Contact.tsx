@@ -19,9 +19,7 @@ export function Step5Contact({
   return (
     <div className="flex flex-col gap-3">
       <div>
-        <h2 className="text-[16px] font-semibold text-white leading-tight">
-          Vos coordonnées
-        </h2>
+        <h2 className="text-[16px] font-semibold text-white leading-tight">Vos coordonnées</h2>
         <p className="mt-0.5 text-[12px] text-white/70">
           Un conseiller vous rappelle pour valider votre demande avant tout déplacement.
         </p>
@@ -29,7 +27,9 @@ export function Step5Contact({
 
       <div className="grid grid-cols-2 gap-2">
         <div>
-          <FieldLabel htmlFor="lastname" required>Nom</FieldLabel>
+          <FieldLabel htmlFor="lastname" required>
+            Nom
+          </FieldLabel>
           <TextInput
             id="lastname"
             value={data.lastname}
@@ -51,7 +51,9 @@ export function Step5Contact({
       </div>
 
       <div>
-        <FieldLabel htmlFor="phone" required>Téléphone</FieldLabel>
+        <FieldLabel htmlFor="phone" required>
+          Téléphone
+        </FieldLabel>
         <TextInput
           id="phone"
           type="tel"
@@ -86,23 +88,26 @@ export function Step5Contact({
           className="mt-0.5 h-4 w-4 rounded border-white/30 accent-brand-orange"
         />
         <span className="text-[11px] leading-snug text-white/85">
-          J'accepte que mes informations soient utilisées pour être recontacté dans
-          le cadre de ma demande de diagnostic toiture gratuit.
+          J'accepte que mes informations soient utilisées pour être recontacté dans le cadre de ma demande de diagnostic
+          toiture gratuit.
         </span>
       </label>
       <FieldError message={errors.consent} />
 
-      <div className="flex gap-2 pt-1">
-        <SecondaryButton type="button" onClick={onBack} className="flex-1" disabled={submitting}>
-          Retour
-        </SecondaryButton>
-        <PrimaryButton type="button" onClick={onSubmit} disabled={submitting} className="flex-[2]">
-          {submitting ? "Envoi en cours…" : "Faire vérifier ma toiture"}
-        </PrimaryButton>
+      <div className="absolute bottom-16 left-0 w-full ">
+        <div className="flex gap-2 pt-1 mt-6">
+          <SecondaryButton type="button" onClick={onBack} className="flex-1" disabled={submitting}>
+            Retour
+          </SecondaryButton>
+          <PrimaryButton type="button" onClick={onSubmit} disabled={submitting} className="flex-[2]">
+            {submitting ? "Envoi en cours…" : "Faire vérifier ma toiture"}
+          </PrimaryButton>
+        </div>
+
+        <p className="text-center text-[11px] text-white/70 mt-3">
+          Gratuit et sans engagement — un conseiller vous rappelle sous 24h.
+        </p>
       </div>
-      <p className="text-center text-[11px] text-white/70 -mt-1">
-        Gratuit et sans engagement — un conseiller vous rappelle sous 24h.
-      </p>
     </div>
   );
 }

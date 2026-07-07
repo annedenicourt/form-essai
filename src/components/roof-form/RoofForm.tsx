@@ -80,9 +80,11 @@ export function RoofForm() {
   }, []);
 
   return (
-    <div className="w-full max-w-[520px] h-[600px] mx-auto p-4 sm:p-5 bg-brand-navy rounded-2xl  shadow-xl">
+    <div className="w-full max-w-[520px] h-[780px] mx-auto p-4 sm:p-5 bg-brand-navy rounded-2xl  shadow-xl">
       <div className="mb-3 text-center">
-        <h1 className="text-[18px] sm:text-[19px] font-bold text-white leading-tight tracking-tight">FAITES VÉRIFIER VOTRE TOITURE</h1>
+        <h1 className="text-[18px] sm:text-[19px] font-bold text-white leading-tight tracking-tight">
+          FAITES VÉRIFIER VOTRE TOITURE
+        </h1>
         <p className="mt-1 text-[12px] text-white/80">Diagnostic gratuit — Réponse sous 24h — Sans engagement</p>
       </div>
 
@@ -91,7 +93,7 @@ export function RoofForm() {
       ) : status === "error" ? (
         <ErrorNotice onRetry={submit} onBack={() => setStatus("idle")} />
       ) : (
-        <>
+        <div className="relative flex flex-col h-full">
           <ProgressBar current={step} total={5} />
           {step === 1 && <Step1Problem data={data} errors={errors} update={update} onNext={goNext} />}
           {step === 2 && <Step2Location data={data} errors={errors} update={update} onNext={goNext} onBack={goBack} />}
@@ -107,7 +109,7 @@ export function RoofForm() {
               submitting={status === "submitting"}
             />
           )}
-        </>
+        </div>
       )}
     </div>
   );

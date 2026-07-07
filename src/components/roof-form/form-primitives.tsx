@@ -1,6 +1,14 @@
 import type { ButtonHTMLAttributes, InputHTMLAttributes, TextareaHTMLAttributes } from "react";
 
-export function FieldLabel({ children, htmlFor, required }: { children: React.ReactNode; htmlFor?: string; required?: boolean }) {
+export function FieldLabel({
+  children,
+  htmlFor,
+  required,
+}: {
+  children: React.ReactNode;
+  htmlFor?: string;
+  required?: boolean;
+}) {
   return (
     <label htmlFor={htmlFor} className="block text-[13px] font-medium text-white mb-1">
       {children}
@@ -75,11 +83,17 @@ export function SmallChoiceCard({
 }) {
   const base =
     "w-full text-left bg-white rounded-lg transition hover:border-brand-orange hover:shadow-[0_0_0_2px_var(--color-brand-orange)]";
-  const state = selected ? "border-brand-orange shadow-[0_0_0_2px_var(--color-brand-orange)]" : " hover:border-brand-orange";
+  const state = selected
+    ? "border-brand-orange shadow-[0_0_0_2px_var(--color-brand-orange)]"
+    : " hover:border-brand-orange";
 
   if (image) {
     return (
-      <button type="button" onClick={onClick} className={`${base} ${state} flex flex-col items-center gap-1.5 text-slate-800`}>
+      <button
+        type="button"
+        onClick={onClick}
+        className={`${base} ${state} flex flex-col items-center gap-1.5 text-slate-800`}
+      >
         <img
           src={image}
           alt=""
@@ -96,9 +110,13 @@ export function SmallChoiceCard({
   }
 
   return (
-    <button type="button" onClick={onClick} className={`${base} ${compact ? "px-3 py-2 text-[13px]" : "px-3 py-2.5 text-[13px]"} ${state}`}>
+    <button
+      type="button"
+      onClick={onClick}
+      className={`${base} ${compact ? "px-3 py-2 text-[13px]" : "px-3 py-2.5 text-[13px]"} ${state}`}
+    >
       {icon ? (
-        <div className="flex flex-col items-center text-center gap-2">
+        <div className="flex items-center text-center gap-2">
           <div className="text-brand-orange">{icon}</div>
           {label}
         </div>
@@ -125,12 +143,18 @@ export function BigChoiceCard({
   image?: string;
 }) {
   const base =
-    "w-full h-32 text-left bg-white rounded-lg transition hover:border-brand-orange hover:shadow-[0_0_0_2px_var(--color-brand-orange)]";
-  const state = selected ? "border-brand-orange shadow-[0_0_0_2px_var(--color-brand-orange)]" : " hover:border-brand-orange";
+    "w-full h-36 text-left bg-white rounded-lg transition hover:border-brand-orange hover:shadow-[0_0_0_2px_var(--color-brand-orange)]";
+  const state = selected
+    ? "border-brand-orange shadow-[0_0_0_2px_var(--color-brand-orange)]"
+    : " hover:border-brand-orange";
 
   if (image) {
     return (
-      <button type="button" onClick={onClick} className={`${base} ${state} flex flex-col items-center gap-1.5 text-slate-800`}>
+      <button
+        type="button"
+        onClick={onClick}
+        className={`${base} ${state} flex flex-col items-center gap-1.5 text-slate-800`}
+      >
         <img
           src={image}
           alt=""
@@ -139,15 +163,19 @@ export function BigChoiceCard({
           onError={(e) => {
             (e.currentTarget as HTMLImageElement).style.display = "none";
           }}
-          className="w-full h-[80px] object-cover rounded-tr-lg rounded-tl-lg"
+          className="w-full h-[100px] object-cover rounded-tr-lg rounded-tl-lg"
         />
-        <span className="mt-3 text-center text-[12px] leading-tight font-medium">{label}</span>
+        <span className="mt-2 text-center text-[12px] leading-tight font-medium">{label}</span>
       </button>
     );
   }
 
   return (
-    <button type="button" onClick={onClick} className={`${base} ${compact ? "px-3 py-2 text-[13px]" : "px-3 py-2.5 text-[13px]"} ${state}`}>
+    <button
+      type="button"
+      onClick={onClick}
+      className={`${base} ${compact ? "px-3 py-2 text-[13px]" : "px-3 py-2.5 text-[13px]"} ${state}`}
+    >
       {icon ? (
         <div className="flex flex-col items-center text-center gap-2">
           <div className="text-brand-orange">{icon}</div>

@@ -1,5 +1,6 @@
 import { CALLBACK_OPTIONS, type FieldErrors, type RoofFormData } from "@/lib/roof-form-schema";
 import { SmallChoiceCard, FieldError, FieldLabel, PrimaryButton, SecondaryButton, TextArea } from "./form-primitives";
+import { Calendar, Clock } from "lucide-react";
 
 export function Step4Callback({
   data,
@@ -20,14 +21,14 @@ export function Step4Callback({
         <h2 className="text-[16px] font-semibold text-white leading-tight">Quand souhaitez-vous être rappelé ?</h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-2">
+      <div className="grid grid-cols-1 gap-2">
         {CALLBACK_OPTIONS.map((opt) => (
           <SmallChoiceCard
             key={opt}
             label={opt}
             selected={data.callback_preference === opt}
             onClick={() => update({ callback_preference: opt })}
-            compact
+            icon={opt === "Le plus rapidement possible" ? <Clock /> : <Calendar />}
           />
         ))}
       </div>
@@ -39,12 +40,12 @@ export function Step4Callback({
           id="message"
           value={data.message}
           onChange={(e) => update({ message: e.target.value })}
-          rows={2}
+          rows={5}
           placeholder="Optionnel"
         />
       </div>
 
-      <div className="flex gap-2 pt-1">
+      <div className="absolute bottom-16 left-0 w-full flex gap-2 pt-1 mt-6">
         <SecondaryButton type="button" onClick={onBack} className="flex-1">
           Retour
         </SecondaryButton>

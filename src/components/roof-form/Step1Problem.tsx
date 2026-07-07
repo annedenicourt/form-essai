@@ -2,19 +2,15 @@ import { PROBLEM_OPTIONS, type FieldErrors, type RoofFormData } from "@/lib/roof
 import { BigChoiceCard, FieldError, PrimaryButton } from "./form-primitives";
 
 import roofMoss from "@/assets/roof-form/roof-moss.jpg";
-import roofBroken from "@/assets/roof-form/roof-broken-tiles.jpg";
-import roofLeak from "@/assets/roof-form/roof-leak.jpg";
-import roofOld from "@/assets/roof-form/roof-old.jpg";
-import roofGutter from "@/assets/roof-form/roof-gutter.jpg";
-import roofUnknown from "@/assets/roof-form/roof-unknown.jpg";
+import roofUnknown from "/public/images/roof-form/roof-unknown.jpg";
 
 const PROBLEM_IMAGES: Record<string, string> = {
   "Mousses / traces noires": roofMoss,
-  "Tuiles abîmées": roofBroken,
-  "Infiltration ou fuite": roofLeak,
-  "Toiture ancienne": roofOld,
-  "Autre ": roofGutter,
-  "Je ne sais pas": roofUnknown,
+  "Tuiles abîmées": "/public/images/tuiles-cassees.png",
+  "Infiltration ou fuite": "/public/images/infiltration-toit.png",
+  "Toiture ancienne": "/public/images/toiture-ancienne.png",
+  "Autre ": "/public/images/gouttiere-abimee.png",
+  "Je ne sais pas": "/public/images/roof-unknown.jpg",
 };
 
 export function Step1Problem({
@@ -34,20 +30,20 @@ export function Step1Problem({
         <h2 className="text-[16px] font-semibold text-white leading-tight">Quel problème constatez-vous ?</h2>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-        {PROBLEM_OPTIONS.map((opt) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        {PROBLEM_OPTIONS.map((option) => (
           <BigChoiceCard
-            key={opt}
-            label={opt}
-            selected={data.problem_type === opt}
-            onClick={() => update({ problem_type: opt })}
-            image={PROBLEM_IMAGES[opt]}
+            key={option}
+            label={option}
+            selected={data.problem_type === option}
+            onClick={() => update({ problem_type: option })}
+            image={PROBLEM_IMAGES[option]}
           />
         ))}
       </div>
       <FieldError message={errors.problem_type} />
 
-      <PrimaryButton type="button" onClick={onNext}>
+      <PrimaryButton type="button" onClick={onNext} className="absolute bottom-16 left-0 w-full">
         Continuer
       </PrimaryButton>
     </div>

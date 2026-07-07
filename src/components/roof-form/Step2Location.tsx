@@ -75,7 +75,9 @@ export function Step2Location({
     <div className="flex flex-col gap-3">
       <div className="mb-6">
         <h2 className="text-[16px] font-semibold text-white leading-tight">Où se situe le logement ?</h2>
-        <p className="mt-0.5 text-[12px] text-white/70">Ces informations nous permettent de vérifier votre zone d'intervention</p>
+        <p className="mt-0.5 text-[12px] text-white/70">
+          Ces informations nous permettent de vérifier votre zone d'intervention
+        </p>
       </div>
 
       <div ref={wrapperRef} className="relative">
@@ -115,9 +117,8 @@ export function Step2Location({
                   pick(s);
                 }}
                 onMouseEnter={() => setActiveIndex(i)}
-                className={`px-3 py-2 text-[13px] cursor-pointer text-slate-800 ${
-                  i === activeIndex ? "bg-slate-100" : "hover:bg-slate-100"
-                }`}
+                className={`px-3 py-2 text-[13px] cursor-pointer text-slate-800 ${i === activeIndex ? "bg-slate-100" : "hover:bg-slate-100"
+                  }`}
               >
                 {s.label}
               </li>
@@ -158,7 +159,7 @@ export function Step2Location({
         </div>
       </div>
 
-      <div className="flex gap-2 pt-1 mt-6">
+      <div className="absolute bottom-16 left-0 w-full flex gap-2 pt-1 mt-6">
         <SecondaryButton type="button" onClick={onBack} className="flex-1">
           Retour
         </SecondaryButton>
