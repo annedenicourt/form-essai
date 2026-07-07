@@ -80,7 +80,7 @@ export function RoofForm() {
   }, []);
 
   return (
-    <div className="w-full max-w-[520px] h-[780px] mx-auto p-4 sm:p-5 bg-brand-navy rounded-2xl  shadow-xl">
+    <div className="w-full max-w-[520px] h-[700px] mx-auto p-4 sm:p-5 bg-brand-navy rounded-2xl  shadow-xl">
       <div className="mb-3 text-center">
         <h1 className="text-[18px] sm:text-[19px] font-bold text-white leading-tight tracking-tight">
           FAITES VÉRIFIER VOTRE TOITURE
