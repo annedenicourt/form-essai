@@ -28,7 +28,7 @@ export function RoofForm() {
     });
   }, []);
 
-  const goNext = useCallback(() => {
+  /* const goNext = useCallback(() => {
     const stepErrors = validateStep(step, data);
     if (Object.keys(stepErrors).length > 0) {
       setErrors(stepErrors);
@@ -36,7 +36,28 @@ export function RoofForm() {
     }
     setErrors({});
     setStep((s) => Math.min(5, s + 1) as StepIndex);
-  }, [step, data]);
+  }, [step, data]); */
+
+  const goNext = useCallback(
+    (patch?: Partial<RoofFormData>) => {
+      const nextData = patch ? { ...data, ...patch } : data;
+
+      const stepErrors = validateStep(step, nextData);
+
+      if (Object.keys(stepErrors).length > 0) {
+        setErrors(stepErrors);
+        return;
+      }
+
+      if (patch) {
+        setData(nextData);
+      }
+
+      setErrors({});
+      setStep((s) => Math.min(5, s + 1) as StepIndex);
+    },
+    [step, data],
+  );
 
   const goBack = useCallback(() => {
     setErrors({});

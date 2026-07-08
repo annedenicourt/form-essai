@@ -1,9 +1,5 @@
 import { PROJECT_OPTIONS, type FieldErrors, type RoofFormData } from "@/lib/roof-form-schema";
-import { SmallChoiceCard, FieldError, PrimaryButton, SecondaryButton, BigChoiceCard } from "./form-primitives";
-import img1 from "@/assets/roof-form/artisan_traitement_toit.png";
-import img2 from "@/assets/roof-form/hydrofuge-toit.png";
-import img3 from "@/assets/roof-form/artisan_toit.png";
-import img4 from "@/assets/roof-form/roof-unknown.jpg";
+import { FieldError, PrimaryButton, SecondaryButton, BigChoiceCard } from "./form-primitives";
 
 export function Step3Project({
   data,
@@ -19,10 +15,11 @@ export function Step3Project({
   onBack: () => void;
 }) {
   const PROJECT_IMAGES: Record<string, string> = {
-    "Nettoyage / démoussage": img1,
-    "Traitement hydrofuge": img2,
-    Réparation: img3,
-    "Avis/Diagnostic": img4,
+    "Nettoyage / démoussage":
+      "https://groupefrancerenov-construction.com/wp-content/uploads/2026/07/artisan_traitement_toit.webp",
+    "Traitement hydrofuge": "https://groupefrancerenov-construction.com/wp-content/uploads/2026/07/hydrofuge-toit.webp",
+    Réparation: "https://groupefrancerenov-construction.com/wp-content/uploads/2026/07/artisan_toit.webp",
+    "Avis/Diagnostic": "https://groupefrancerenov-construction.com/wp-content/uploads/2026/07/roof-unknown.webp",
   };
   return (
     <div className="flex flex-col gap-3">
@@ -36,7 +33,10 @@ export function Step3Project({
             key={option}
             label={option}
             selected={data.project_type === option}
-            onClick={() => update({ project_type: option })}
+            onClick={() => {
+              update({ project_type: option });
+              onNext();
+            }}
             image={PROJECT_IMAGES[option]}
           />
         ))}

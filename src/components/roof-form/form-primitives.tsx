@@ -143,7 +143,7 @@ export function BigChoiceCard({
   image?: string;
 }) {
   const base =
-    "w-full h-36 text-left bg-white rounded-lg transition hover:border-brand-orange hover:shadow-[0_0_0_2px_var(--color-brand-orange)]";
+    "w-full h-32 md:h-36 text-left bg-white rounded-lg transition hover:border-brand-orange hover:shadow-[0_0_0_2px_var(--color-brand-orange)]";
   const state = selected
     ? "border-brand-orange shadow-[0_0_0_2px_var(--color-brand-orange)]"
     : " hover:border-brand-orange";
@@ -163,7 +163,7 @@ export function BigChoiceCard({
           onError={(e) => {
             (e.currentTarget as HTMLImageElement).style.display = "none";
           }}
-          className="w-full h-[100px] object-cover rounded-tr-lg rounded-tl-lg"
+          className="w-full h-[70px] md:h-[100px] object-cover rounded-tr-lg rounded-tl-lg"
         />
         <span className="mt-2 text-center text-[12px] leading-tight font-medium">{label}</span>
       </button>
