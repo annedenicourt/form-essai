@@ -86,7 +86,8 @@ export function RoofForm() {
         message: data.message,
         consent: data.consent,
       });
-      setStatus("success");
+      //setStatus("success");
+      window.top?.location.assign("https://groupefrancerenov-construction.com/resultats/");
     } catch (err) {
       console.error("[RoofForm] submit error:", err);
       setStatus("error");

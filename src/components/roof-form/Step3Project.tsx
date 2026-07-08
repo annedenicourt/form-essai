@@ -11,7 +11,7 @@ export function Step3Project({
   data: RoofFormData;
   errors: FieldErrors;
   update: (patch: Partial<RoofFormData>) => void;
-  onNext: () => void;
+  onNext: (patch?: Partial<RoofFormData>) => void;
   onBack: () => void;
 }) {
   const PROJECT_IMAGES: Record<string, string> = {
@@ -33,10 +33,8 @@ export function Step3Project({
             key={option}
             label={option}
             selected={data.project_type === option}
-            onClick={() => {
-              update({ project_type: option });
-              onNext();
-            }}
+            onClick={() => onNext({ project_type: option })}
+
             image={PROJECT_IMAGES[option]}
           />
         ))}
@@ -47,7 +45,7 @@ export function Step3Project({
         <SecondaryButton type="button" onClick={onBack} className="flex-1">
           Retour
         </SecondaryButton>
-        <PrimaryButton type="button" onClick={onNext} className="flex-[2]">
+        <PrimaryButton type="button" onClick={() => onNext()} className="flex-[2]">
           Continuer
         </PrimaryButton>
       </div>
