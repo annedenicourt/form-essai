@@ -82,10 +82,10 @@ export function SmallChoiceCard({
   image?: string;
 }) {
   const base =
-    "w-full text-left bg-white rounded-lg transition hover:border-brand-orange hover:shadow-[0_0_0_2px_var(--color-brand-orange)]";
+    "w-full text-left rounded-lg transition hover:border-brand-orange hover:shadow-[0_0_0_2px_var(--color-brand-orange)]";
   const state = selected
-    ? "border-brand-orange shadow-[0_0_0_2px_var(--color-brand-orange)]"
-    : " hover:border-brand-orange";
+    ? "border-brand-orange bg-orange-100 shadow-[0_0_0_2px_var(--color-brand-orange)]"
+    : " bg-white hover:border-brand-orange";
 
   if (image) {
     return (

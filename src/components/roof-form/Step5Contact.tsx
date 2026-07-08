@@ -21,7 +21,7 @@ export function Step5Contact({
       <div>
         <h2 className="text-[16px] font-semibold text-white leading-tight">Vos coordonnées</h2>
         <p className="mt-0.5 text-[12px] text-white/70">
-          Un conseiller vous rappelle pour valider votre demande avant tout déplacement.
+          Un conseiller vous rappelle pour valider votre demande avant tout déplacement
         </p>
       </div>
 
@@ -89,7 +89,7 @@ export function Step5Contact({
         />
         <span className="text-[11px] leading-snug text-white/85">
           J'accepte que mes informations soient utilisées pour être recontacté dans le cadre de ma demande de diagnostic
-          toiture gratuit.
+          toiture gratuit
         </span>
       </label>
       <FieldError message={errors.consent} />
