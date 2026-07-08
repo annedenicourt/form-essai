@@ -41,7 +41,7 @@ export function Step3Project({
       </div>
       <FieldError message={errors.project_type} />
 
-      <div className="absolute bottom-16 left-0 w-full flex gap-2 pt-1 mt-6">
+      <div className="absolute bottom-22 md:bottom-14 left-0 w-full flex gap-2 pt-1 mt-6">
         <SecondaryButton type="button" onClick={onBack} className="flex-1">
           Retour
         </SecondaryButton>

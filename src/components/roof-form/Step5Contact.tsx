@@ -94,7 +94,7 @@ export function Step5Contact({
       </label>
       <FieldError message={errors.consent} />
 
-      <div className="absolute bottom-16 left-0 w-full ">
+      <div className="absolute bottom-22 md:bottom-14 left-0 w-full ">
         <div className="flex gap-2 pt-1 mt-6">
           <SecondaryButton type="button" onClick={onBack} className="flex-1" disabled={submitting}>
             Retour
