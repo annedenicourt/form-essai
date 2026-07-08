@@ -64,6 +64,16 @@ export function RoofForm() {
     setStep((s) => Math.max(1, s - 1) as StepIndex);
   }, []);
 
+  const notifyParentSuccess = useCallback(() => {
+    window.parent.postMessage(
+      {
+        type: "ROOF_FORM_SUCCESS",
+        source: "landing-page-toiture",
+      },
+      "*",
+    );
+  }, []);
+
   const submit = useCallback(async () => {
     const stepErrors = validateStep(5, data);
     if (Object.keys(stepErrors).length > 0) {
@@ -86,13 +96,14 @@ export function RoofForm() {
         message: data.message,
         consent: data.consent,
       });
-      //setStatus("success");
-      window.top?.location.assign("https://groupefrancerenov-construction.com/resultats/");
+      setStatus("success");
+      notifyParentSuccess();
+      //window.top?.location.assign("https://groupefrancerenov-construction.com/resultats/");
     } catch (err) {
       console.error("[RoofForm] submit error:", err);
       setStatus("error");
     }
-  }, [data]);
+  }, [data, notifyParentSuccess]);
 
   const reset = useCallback(() => {
     setData(emptyFormData);
