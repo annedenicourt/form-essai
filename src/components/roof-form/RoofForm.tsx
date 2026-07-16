@@ -118,7 +118,7 @@ export function RoofForm() {
         <h1 className="text-[18px] sm:text-[19px] font-bold text-white leading-tight tracking-tight">
           FAITES VÉRIFIER VOTRE TOITURE
         </h1>
-        <p className="mt-1 text-[12px] text-white/80">Diagnostic gratuit — Réponse sous 24h — Sans engagement</p>
+        <p className="mt-1 text-[16px] text-lime-500 font-bold">Diagnostic gratuit — Sans engagement</p>
       </div>
 
       {status === "success" ? (
