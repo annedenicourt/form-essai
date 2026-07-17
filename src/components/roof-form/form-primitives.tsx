@@ -143,18 +143,14 @@ export function BigChoiceCard({
   image?: string;
 }) {
   const base =
-    "w-full h-32 md:h-36 text-left bg-white rounded-lg transition hover:border-brand-orange hover:shadow-[0_0_0_2px_var(--color-brand-orange)]";
+    "relative w-full h-[120px] md:h-[140px] text-left rounded-lg transition hover:border-brand-orange hover:shadow-[0_0_0_2px_var(--color-brand-orange)]";
   const state = selected
     ? "border-brand-orange shadow-[0_0_0_2px_var(--color-brand-orange)]"
     : " hover:border-brand-orange";
 
   if (image) {
     return (
-      <button
-        type="button"
-        onClick={onClick}
-        className={`${base} ${state} flex flex-col items-center gap-1.5 text-slate-800`}
-      >
+      <button type="button" onClick={onClick} className={`${base} ${state} flex flex-col items-center text-slate-800`}>
         <img
           src={image}
           alt=""
@@ -163,9 +159,13 @@ export function BigChoiceCard({
           onError={(e) => {
             (e.currentTarget as HTMLImageElement).style.display = "none";
           }}
-          className="w-full h-[70px] md:h-[100px] object-cover rounded-tr-lg rounded-tl-lg"
+          className="w-full  h-full object-cover rounded-lg rounded-lg"
         />
-        <span className="mt-2 text-center text-[12px] leading-tight font-medium">{label}</span>
+        <div className="absolute bottom-0 left-0 right-0 h-[25px] md:h-[20px] flex items-center justify-center bg-white backdrop-blur-sm rounded-b-lg">
+          <span className="text-center text-[11px] md:text-[12px] leading-none md:leading-tight font-bold md:font-medium">
+            {label}
+          </span>
+        </div>
       </button>
     );
   }
